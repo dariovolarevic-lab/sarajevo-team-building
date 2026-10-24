@@ -102,7 +102,10 @@ export async function POST(req: Request) {
   if (!mailConfigured()) {
     console.error("SMTP configuration is incomplete; proposal request not delivered.");
     return NextResponse.json(
-      { error: `We could not send your request right now. Please email us at ${site.email}.` },
+      {
+        error: `We could not send your request right now. Please email us at ${site.email}.`,
+        debug: `config missing: host=${!!process.env.SMTP_HOST} user=${!!process.env.SMTP_USER} pass=${!!process.env.SMTP_PASS}`, // TEMP diagnostic, remove
+      },
       { status: 500 },
     );
   }
@@ -111,8 +114,12 @@ export async function POST(req: Request) {
     await sendProposalEmail(values);
   } catch (err) {
     console.error("Failed to send proposal email", err);
+    const e = err as { code?: string; message?: string };
     return NextResponse.json(
-      { error: `We could not send your request right now. Please email us at ${site.email}.` },
+      {
+        error: `We could not send your request right now. Please email us at ${site.email}.`,
+        debug: `${e.code ?? "ERR"}: ${e.message ?? String(err)}`, // TEMP diagnostic, remove
+      },
       { status: 500 },
     );
   }
