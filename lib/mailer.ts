@@ -106,10 +106,15 @@ export async function sendProposalEmail(v: ProposalValues) {
     auth: { user: process.env.SMTP_USER, pass: process.env.SMTP_PASS },
   });
 
+  // The address must stay the authenticated mailbox; only the display name can show the visitor.
+  const visitorName = v.fullName.replace(/[\r\n"<>]/g, " ").trim();
+  const fromAddress =
+    process.env.SMTP_FROM?.match(/<([^>]+)>/)?.[1] ?? process.env.SMTP_FROM ?? process.env.SMTP_USER ?? "";
+
   await transport.sendMail({
-    from: process.env.SMTP_FROM ?? `${site.name} <${process.env.SMTP_USER}>`,
+    from: { name: visitorName, address: fromAddress },
     to: process.env.TO_EMAIL || site.email,
-    replyTo: { name: v.fullName.replace(/[\r\n"<>]/g, " "), address: v.email },
+    replyTo: { name: visitorName, address: v.email },
     subject: `New proposal request: ${v.company} (${v.groupSize})`.replace(/[\r\n]/g, " "),
     text,
     html: buildHtml(htmlRows, v.details, v),
