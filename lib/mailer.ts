@@ -7,8 +7,7 @@ export function mailConfigured() {
   return Boolean(
     process.env.SMTP_HOST &&
       process.env.SMTP_USER &&
-      process.env.SMTP_PASS &&
-      process.env.TO_EMAIL,
+      process.env.SMTP_PASS,
   );
 }
 
@@ -109,7 +108,7 @@ export async function sendProposalEmail(v: ProposalValues) {
 
   await transport.sendMail({
     from: process.env.SMTP_FROM ?? `${site.name} <${process.env.SMTP_USER}>`,
-    to: process.env.TO_EMAIL,
+    to: process.env.TO_EMAIL || site.email,
     replyTo: { name: v.fullName.replace(/[\r\n"<>]/g, " "), address: v.email },
     subject: `New proposal request: ${v.company} (${v.groupSize})`.replace(/[\r\n]/g, " "),
     text,
