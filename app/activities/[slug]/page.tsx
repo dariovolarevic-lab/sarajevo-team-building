@@ -263,8 +263,8 @@ export default async function ActivityPage({ params }: Props) {
             <ol className="mt-8 border-l border-charcoal/20">
               {activity.flow.map((s, i) => (
                 <li key={s.title} className="relative pl-8">
+                  <span aria-hidden className="absolute -left-[6px] top-1.5 h-3 w-3 rounded-full bg-ember ring-4 ring-sand" />
                   <Reveal delay={i * 60} className="pb-10">
-                    <span aria-hidden className="absolute -left-[6px] top-1.5 h-3 w-3 rounded-full bg-ember ring-4 ring-sand" />
                     <h3 className="font-display text-xl text-slate-deep">{s.title}</h3>
                     <p className="mt-2 leading-relaxed text-charcoal-soft">{s.text}</p>
                   </Reveal>

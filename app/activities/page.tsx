@@ -40,8 +40,9 @@ export default function ActivitiesPage() {
             Three ways to spend a day or an evening in Sarajevo
           </h1>
           <p className="animate-fade-up mt-6 max-w-2xl text-lg leading-relaxed text-white/80 [animation-delay:200ms] lg:max-w-xl">
-            Each format is run in English for international groups and can be
-            booked on its own or alongside the others. Pick the one that
+            Each format can be arranged in your preferred language on request,
+            subject to facilitator availability, and booked on its own or
+            alongside the others. Pick the one that
             matches what your team needs, and we will fit it around your
             schedule.
           </p>

@@ -405,7 +405,7 @@ export const activities: Activity[] = [
   {
     slug: "sarajevo-old-town-challenge",
     title: "Sarajevo Old Town Challenge",
-    eyebrow: "City quest · Old Town · Half day",
+    eyebrow: "City quest · Old Town · 1.5 – 3 hours",
     tagline:
       "An action-packed quest through cobblestone streets, with local traditions to unlock and a clock that keeps running.",
     summary:

@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { imagePreviews } from "@/lib/image-previews";
 
 export type HeroPhoto = {
   src: string;
@@ -47,13 +48,15 @@ export default function HeroShapes({ photos }: { photos: HeroPhoto[] }) {
       <div className="relative h-full w-full">
         {shapes.slice(0, photos.length).map((s, i) => (
           <div key={i} className={`animate-fade-up absolute ${s.box} ${s.delay}`}>
-            <div className="relative h-full w-full overflow-hidden bg-slate-night" style={s.shape}>
+            <div className="relative h-full w-full overflow-hidden bg-sand-dark" style={s.shape}>
               <Image
                 src={photos[i].src}
                 alt={photos[i].alt}
                 fill
                 sizes="(min-width: 1024px) 40vw, 90vw"
                 priority
+                placeholder={imagePreviews[photos[i].src]?.blurDataURL ? "blur" : "empty"}
+                blurDataURL={imagePreviews[photos[i].src]?.blurDataURL}
                 className="object-cover"
                 style={{ objectPosition: photos[i].objectPosition }}
               />

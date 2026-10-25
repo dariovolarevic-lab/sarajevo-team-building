@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     absolute: "Corporate Team Building in Sarajevo | Sarajevo Team Building",
   },
   description:
-    "Corporate team building in Sarajevo: a tablet city race, a movie making challenge and an Old Town challenge. Run in English for groups of 10 to 500.",
+    "Corporate team building in Sarajevo for groups of 10 to 500: a tablet city race, movie making and an Old Town challenge. Your preferred language on request.",
   alternates: { canonical: "/" },
 };
 
@@ -50,7 +50,7 @@ const proofPoints = [
   { value: "Tailored", label: "proposal built around your objectives and event requirements" },
   { value: "Dedicated team", label: "our full team behind your event, from first brief to final debrief" },
   { value: "End-to-end", label: "planning, activities and equipment handled by us, with transfers and extras on request" },
-  { value: "Any language", label: "briefings, quizzes and facilitation in the language your group needs" },
+  { value: "Your language", label: "briefings, quizzes and facilitation in your preferred language, on request and subject to facilitator availability" },
 ];
 
 const logistics = [
@@ -76,7 +76,7 @@ const logistics = [
   },
   {
     title: "Expert Facilitation",
-    text: "Professional facilitators host and coordinate each event in the language your group needs, from the high-energy opening briefing to the final scoring.",
+    text: "Professional facilitators host and coordinate each event, from the high-energy opening briefing to the final scoring. Your preferred language can be arranged on request, subject to facilitator availability.",
     icon: (
       <>
         <circle cx="9" cy="8" r="3.2" />
@@ -102,7 +102,7 @@ const faqs = [
   },
   {
     q: "Are your team building activities in Sarajevo suitable for international teams?",
-    a: "Absolutely. All our corporate experiences, tablet quizzes, briefings, and live facilitators operate entirely in professional English, catering seamlessly to multinational corporate groups and expats.",
+    a: "Absolutely. Briefings, quizzes and facilitation can be arranged in your preferred language on request, subject to facilitator availability. Tell us what your group needs when you enquire, and we will confirm the language arrangements in your proposal.",
   },
   {
     q: "How do your activity-only services integrate with our existing event itinerary?",
@@ -143,21 +143,21 @@ export default function Home() {
         <div className="mx-auto w-full max-w-7xl px-5 pb-12 pt-36 sm:px-8 lg:pb-40 lg:pt-40">
           <div className="max-w-3xl lg:max-w-[33rem] xl:max-w-xl">
             <p className="animate-fade-up text-xs font-semibold uppercase tracking-[0.28em] text-ember">
-              Corporate team building in Sarajevo
+              For companies, DMCs &amp; event agencies
             </p>
             <h1 className="animate-fade-up mt-6 font-display text-[2.6rem] font-semibold leading-[1.04] tracking-tight text-slate-deep [animation-delay:100ms] sm:text-6xl lg:text-[3.5rem] xl:text-[4rem]">
-              Team activities that make the most of{" "}
-              <span className="text-ember">Sarajevo</span>.
+              Team Building Activities in{" "}
+              <span className="text-ember">Sarajevo</span>
             </h1>
             <p className="animate-fade-up mt-7 max-w-xl text-lg leading-relaxed text-charcoal-soft [animation-delay:200ms]">
-              You are already bringing your team here. We give them something
-              worth doing: a tablet city race, a movie making challenge and an
-              Old Town challenge, led by local
-              facilitators in English and timed around your itinerary.
+              Interactive city challenges and creative team experiences for
+              companies, DMCs and event agencies. Led by local facilitators,
+              tailored to your itinerary and available in your preferred
+              language.
             </p>
             <div className="animate-fade-up mt-10 flex flex-col gap-4 [animation-delay:300ms] sm:flex-row">
               <ButtonLink href="#experiences" variant="outlineDark" arrow={false}>
-                Explore Experiences
+                Explore Activities
               </ButtonLink>
               <ButtonLink href="/contact">Request a Proposal</ButtonLink>
             </div>
@@ -206,6 +206,33 @@ export default function Home() {
                 <ActivityCard activity={a} tone="light" />
               </Reveal>
             ))}
+          </div>
+
+          <div className="mt-12 grid gap-6 md:grid-cols-2">
+            <Reveal className="h-full">
+              <section aria-labelledby="companies-heading" className="h-full border-t-2 border-ember bg-white p-7 sm:p-8">
+                <h3 id="companies-heading" className="font-display text-2xl font-semibold tracking-tight text-slate-deep">
+                  For Companies
+                </h3>
+                <p className="mt-3 leading-relaxed text-charcoal-soft">
+                  Bring your people together through shared challenges and
+                  creative experiences. We tailor the activity to your group,
+                  goals and schedule, so you can focus on your team.
+                </p>
+              </section>
+            </Reveal>
+            <Reveal delay={80} className="h-full">
+              <section aria-labelledby="agencies-heading" className="h-full border-t-2 border-ember bg-white p-7 sm:p-8">
+                <h3 id="agencies-heading" className="font-display text-2xl font-semibold tracking-tight text-slate-deep">
+                  For DMCs &amp; Event Agencies
+                </h3>
+                <p className="mt-3 leading-relaxed text-charcoal-soft">
+                  Your local partner for team building in Sarajevo. We handle
+                  the activity, facilitators and equipment, working around
+                  your itinerary while you manage the wider event.
+                </p>
+              </section>
+            </Reveal>
           </div>
         </div>
       </section>

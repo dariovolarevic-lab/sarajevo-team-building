@@ -32,7 +32,7 @@ export default function OpengraphImage() {
           </div>
         </div>
                   <div style={{ display: "flex", fontSize: 28, color: "#9ea6b5" }}>
-          Corporate team building · Run in English
+          Corporate team building · Your language, on request
         </div>
       </div>
     ),

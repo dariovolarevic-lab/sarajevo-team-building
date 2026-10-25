@@ -5,7 +5,7 @@ export const site = {
   indexable: process.env.NEXT_PUBLIC_SITE_ENV !== "staging",
   email: "info@sarajevoteambuilding.com",
   description:
-    "Corporate team building activities in Sarajevo for international companies. We run the activity only, in English, and fit it around your existing event itinerary.",
+    "Corporate team building activities in Sarajevo for international companies, fitted around your event itinerary. Your preferred language can be arranged on request, subject to facilitator availability.",
 };
 
 export const groupSizes = [

@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import type { Activity } from "@/lib/activities";
+import { imagePreviews } from "@/lib/image-previews";
 import ActivityArt from "./ActivityArt";
 
 type Tone = "dark" | "light";
@@ -45,12 +46,14 @@ export default function ActivityCard({
       href={`/activities/${activity.slug}`}
       className={`group flex h-full flex-col overflow-hidden border transition-all duration-300 ease-in-out hover:-translate-y-2 ${shell[tone]}`}
     >
-      <div className="relative h-52 shrink-0 overflow-hidden bg-slate-deep">
+      <div className="relative h-52 shrink-0 overflow-hidden bg-sand-dark">
         {photo ? (
           <Image
             src={photo.src}
             alt={photo.alt}
             fill
+            placeholder={imagePreviews[photo.src]?.blurDataURL ? "blur" : "empty"}
+            blurDataURL={imagePreviews[photo.src]?.blurDataURL}
             sizes="(min-width: 768px) 33vw, 100vw"
             className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
             style={{ objectPosition: photo.focus }}
